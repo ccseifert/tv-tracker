@@ -1,0 +1,49 @@
+{
+  "name": "tv-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
+    "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccseifert/tv-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccseifert/tv-tracker/issues"
+  },
+  "homepage": "https://github.com/ccseifert/tv-tracker#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "parcel-bundler": "^1.9.7",
+    "prettier": "^1.14.2",
+    "react-redux": "^5.1.1",
+    "redux": "^4.0.1"
+  },
+  "dependencies": {
+    "@reach/router": "^1.1.1",
+    "axios": "^0.18.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "styled-components": "^4.1.1",
+    "themoviedb-javascript-library": "^3.0.3"
+  }
+}
