@@ -33,18 +33,16 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
-    "parcel-bundler": "^1.9.7",
-    "prettier": "^1.14.2",
-    "react-redux": "^5.1.1",
-    "redux": "^4.0.1"
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.14.2"
   },
   "dependencies": {
-    "@material-ui/core": "^3.6.2",
+    "@material-ui/core": "^3.7.0",
     "@reach/router": "^1.1.1",
     "axios": "^0.18.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "styled-components": "^4.1.1",
+    "styled-components": "^4.1.3",
     "themoviedb-javascript-library": "^3.0.3",
     "typeface-roboto": "0.0.54"
   }

@@ -1,14 +1,6 @@
 import React from 'react';
 import theMovieDb from 'themoviedb-javascript-library';
 import Show from './Show';
-import { connect } from 'react-redux';
-import { setShow } from '../store/actions';
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addShow: show => dispatch(setShow(show))
-  };
-};
 
 class ShowPage extends React.Component {
   state = {
@@ -19,8 +11,8 @@ class ShowPage extends React.Component {
       number_of_seasons: 0,
       overview: '',
       backdrop_path: '',
-      seasons: []
-    }
+      seasons: [],
+    },
   };
 
   componentDidMount() {
@@ -39,10 +31,9 @@ class ShowPage extends React.Component {
         number_of_episodes: showData.number_of_episodes,
         number_of_seasons: showData.number_of_seasons,
         overview: showData.overview,
-        backdrop_path:
-          theMovieDb.common.images_uri + 'original' + showData.backdrop_path,
-        seasons: showData.seasons
-      }
+        backdrop_path: theMovieDb.common.images_uri + 'original' + showData.backdrop_path,
+        seasons: showData.seasons,
+      },
     });
 
     console.log(showData);
@@ -97,7 +88,4 @@ class ShowPage extends React.Component {
   }
 }
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(ShowPage);
+export default ShowPage;

@@ -1,10 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-
-const mapStateToProps = state => {
-  return { show: state.setShow.show, season: state.setSeason.season };
-};
 
 const SeasonWrapper = styled.div`
   /* width: 100%;
@@ -34,7 +29,4 @@ const Season = ({ show, season }) => (
   </SeasonWrapper>
 );
 
-export default connect(
-  mapStateToProps,
-  null
-)(Season);
+export default Season;

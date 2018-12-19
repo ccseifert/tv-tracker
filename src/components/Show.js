@@ -1,11 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import { Link } from '@reach/router';
-
-const mapStateToProps = state => {
-  return { show: state.setShow.show };
-};
 
 const ShowWrapper = styled.div`
   /* width: 100%;
@@ -63,9 +58,7 @@ const Show = ({ show }) => (
     {show.seasons.map((season, index) => (
       <SeasonList key={index}>
         <SeasonListName>
-          <Link to={`/season/${show.id}/${season.season_number}`}>
-            {season.name}
-          </Link>
+          <Link to={`/season/${show.id}/${season.season_number}`}>{season.name}</Link>
         </SeasonListName>
         <SeasonListCount>{season.episode_count}</SeasonListCount>
       </SeasonList>
@@ -73,7 +66,4 @@ const Show = ({ show }) => (
   </ShowWrapper>
 );
 
-export default connect(
-  mapStateToProps,
-  null
-)(Show);
+export default Show;
