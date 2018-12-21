@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
+import { Consumer } from '../contexts/ShowContext';
 
 const ShowWrapper = styled.div`
   /* width: 100%;
@@ -34,36 +35,49 @@ const SeasonListCount = styled.div`
   grid-column: span 2;
 `;
 
-const Show = ({ show }) => (
-  <ShowWrapper className="Show" img={show.backdrop_path}>
-    <ShowHeadlineImage img={show.backdrop_path} />
-    <h1>{show.name}</h1>
-    <div className="num-seasons">
-      <strong>Number of Seasons:</strong> {show.number_of_seasons}
-    </div>
-    <div className="num-episodes">
-      <strong>Number of Episodes:</strong> {show.number_of_episodes}
-    </div>
-    <div className="overview">
-      <strong>Overview:</strong> {show.overview}
-    </div>
+// const Show = () => (
+class Show extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-    {/* This looks like it should be a component */}
-    <SeasonListHeader>
-      <SeasonList>
-        <SeasonListName>Season</SeasonListName>
-        <SeasonListCount>Episode Count</SeasonListCount>
-      </SeasonList>
-    </SeasonListHeader>
-    {show.seasons.map((season, index) => (
-      <SeasonList key={index}>
-        <SeasonListName>
-          <Link to={`/season/${show.id}/${season.season_number}`}>{season.name}</Link>
-        </SeasonListName>
-        <SeasonListCount>{season.episode_count}</SeasonListCount>
-      </SeasonList>
-    ))}
-  </ShowWrapper>
-);
+  render() {
+    return (
+      <Consumer>
+        {context => (
+          <ShowWrapper className="Show" img={context.show.backdrop_path}>
+            <ShowHeadlineImage img={context.show.backdrop_path} />
+            <h1>{context.show.name}</h1>
+            <div className="num-seasons">
+              <strong>Number of Seasons:</strong> {context.show.number_of_seasons}
+            </div>
+            <div className="num-episodes">
+              <strong>Number of Episodes:</strong> {context.show.number_of_episodes}
+            </div>
+            <div className="overview">
+              <strong>Overview:</strong> {context.show.overview}
+            </div>
+
+            {/* This looks like it should be a component */}
+            <SeasonListHeader>
+              <SeasonList>
+                <SeasonListName>Season</SeasonListName>
+                <SeasonListCount>Episode Count</SeasonListCount>
+              </SeasonList>
+            </SeasonListHeader>
+            {context.show.seasons.map((season, index) => (
+              <SeasonList key={index}>
+                <SeasonListName>
+                  <Link to={`/season/${context.show.id}/${season.season_number}`}>{season.name}</Link>
+                </SeasonListName>
+                <SeasonListCount>{season.episode_count}</SeasonListCount>
+              </SeasonList>
+            ))}
+          </ShowWrapper>
+        )}
+      </Consumer>
+    );
+  }
+}
 
 export default Show;
