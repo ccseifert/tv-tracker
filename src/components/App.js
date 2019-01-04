@@ -1,9 +1,10 @@
 import React from 'react';
-import { Router, Link } from '@reach/router';
+import { Router } from '@reach/router';
 import { Provider } from '../contexts/ShowContext';
 import Home from './Home';
 import ShowPage from './ShowPage';
 import SeasonPage from './SeasonPage';
+import Header from './Header';
 import theMovieDb from 'themoviedb-javascript-library';
 
 class App extends React.Component {
@@ -26,13 +27,6 @@ class App extends React.Component {
       getShow: this.getShow.bind(this),
     };
   }
-  // getShow() {
-  //   if (this.state.show) {
-  //     this.setState({ show: { id: 77 } });
-  //   } else {
-  //     this.setState({ show: {} });
-  //   }
-  // }
 
   getShow(id) {
     console.log('getShow id: ' + id);
@@ -63,15 +57,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <header>
-          <Link to="/">Home</Link>
-          <Link to="/show/1396">Breaking Bad</Link>
-          <Link to="/search">
-            <span aria-label="Search" role="img">
-              🔍
-            </span>
-          </Link>
-        </header>
+        <Header />
         <Provider value={this.state}>
           <Router>
             <Home path="/" />
